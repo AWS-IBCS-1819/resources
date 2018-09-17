@@ -27,11 +27,15 @@ public class Conditions {
     System.out.println(myStr);
 
     int numO = 0;
-    for (int i = 0; i < myStr.capacity() - 5; i++) {
-
+    for (int i = 0; i < myStr.capacity() - 4; i++) {
       if (myStr.substring(i, i + 4).equals("gods")) {
-        System.out.println(myStr.substring(i, i + 4));
         numO++;
+      }
+      else if (myStr.substring(i, i + 4).equals("Gods")) {
+        numO++;
+      }
+      else if (myStr.substring(i, i + 4).equals("END*")) {
+        break;
       }
     }
     System.out.println("Number of 'gods' in The Odyssey: " + Integer.toString(numO));
