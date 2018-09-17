@@ -17,7 +17,7 @@ public class Conditions {
 
       while (sc.hasNext()) { //checks to see if our file is empty
         myStr.append(sc.next() + " ");
-        count++;
+        //count++;
       }
     }
     catch (FileNotFoundException e) {
@@ -27,12 +27,14 @@ public class Conditions {
     System.out.println(myStr);
 
     int numO = 0;
-    for (int i = 0; i < count - 7; i++) {
-      if (myStr.substring(i, i + 7).equals("Odysseus")) {
+    for (int i = 0; i < myStr.capacity() - 5; i++) {
+
+      if (myStr.substring(i, i + 4).equals("gods")) {
+        System.out.println(myStr.substring(i, i + 4));
         numO++;
       }
     }
-    System.out.println("Number of 'Odysseus' in The Odyssey: " + Integer.toString(numO));
+    System.out.println("Number of 'gods' in The Odyssey: " + Integer.toString(numO));
 
   }
 }
