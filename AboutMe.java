@@ -5,7 +5,7 @@ import java.util.*;
 
 public class AboutMe{
 
-  public static String name; // creation of the static var
+  public String name; // creation of the static var
   public static String hairColor;
   public static Integer age;
 
@@ -22,6 +22,18 @@ public class AboutMe{
   public static void main(String[] args) {
 
     AboutMe mrC = new AboutMe(); // call constructor method
+    AboutMe notMrC = new AboutMe(); // construct different about me
+
+    System.out.println("names:");
+    System.out.println("mrC: " + mrC.name);
+    System.out.println("notMrC: " + notMrC.name);
+
+    System.out.println("-- change --\n");
+    notMrC.changeName("Ezekiel");
+
+    System.out.println("names:");
+    System.out.println("mrC: " + mrC.name);
+    System.out.println("notMrC: " + notMrC.name);
 
     System.out.println("Welcome to a bit about ME."
     + " What would you like to know?:\n(name)\n(hair color)\n(age)\n"
@@ -32,13 +44,14 @@ public class AboutMe{
     if (userIn.equals("name")){
       System.out.println("Hello my name is " + mrC.name);
     }
-    if (userIn.equals("change")){
+    else if (userIn.equals("change")){
       // add prompt to select the name change
       mrC.changeName("Ezekiel");
       System.out.println("Hello my name is " + mrC.name);
     }
 
     newIn.close();
+    
 
   }
 

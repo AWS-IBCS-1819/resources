@@ -24,18 +24,18 @@ public class Conditions {
       e.printStackTrace();
     }
 
-    System.out.println(myStr);
+    //System.out.println(myStr);
 
-    int numO = 0;
+    int numG = 0;
     for (int i = 0; i < myStr.length() - 4; i++) {
       if (myStr.substring(i, i + 4).equals("gods")) {
-        numO++;
+        numG++;
       }
       else if (myStr.substring(i, i + 4).equals("Gods")) {
-        numO++;
+        numG++;
       }
     }
-    System.out.println("Number of 'gods' in The Odyssey: " + Integer.toString(numO));
+    System.out.println("Number of 'gods' in The Odyssey: " + Integer.toString(numG));
 
   }
 }
