@@ -1,10 +1,10 @@
 Philosophy 101 - Dr. Anderson
 
-Adela, Willie         : 90.3%
+Adela, Willie         : 90.0%
 Aristide, Ludovic     : 82.8%
 Chrissie, Janek       : 98.1%
-Ingolf, Bartosz       : 65.0%
 Giovanni, Roberta     : 67.4%
+Ingolf, Bartosz       : 65.0%
 Paislee, Margot       : 78.0%
 Philippa, Lennie      : 88.3%
 Rodrigue, Tatienne    : 93.4%
