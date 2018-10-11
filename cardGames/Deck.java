@@ -9,22 +9,6 @@ public class Deck {
 
   public Deck() {
     cards = new ArrayList<String>();
-    cards.add("this deck");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     for (int i = 1; i <= 13; i++) {
       for (int j = 1; j <= 4; j++) {
@@ -60,7 +44,7 @@ public class Deck {
         cards.add(num + " of " + suit);
       }
     }
-    
+
   }
 
 }
