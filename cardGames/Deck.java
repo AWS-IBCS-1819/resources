@@ -5,10 +5,35 @@ import java.util.*;
 
 public class Deck {
 
-  ArrayList<String> cards;
+  ArrayList<Card> cards;
+  ArrayList<Card> discard;
+
+  public Card drawCard() {
+    Card c = cards.get(0);
+    cards.remove(0);
+    discard.add(c);
+    return c;
+  }
+
+  public void reset() {
+    cards.addAll(discard);
+    discard.clear();
+  }
+
+  public void shuffle() {
+    Random r = new Random();
+    ArrayList<Card> shuffled = new ArrayList<Card>();
+
+    int[] ar = r.ints(5200, 0, 52).distinct().toArray();
+    for (int i = 0; i < 52; i ++) {
+      shuffled.add(cards.get(ar[i]));
+    }
+    cards = shuffled;
+  }
 
   public Deck() {
-    cards = new ArrayList<String>();
+    cards = new ArrayList<Card>();
+    discard = new ArrayList<Card>();
 
     for (int i = 1; i <= 13; i++) {
       for (int j = 1; j <= 4; j++) {
@@ -41,7 +66,10 @@ public class Deck {
         else {
           suit = "Spades";
         }
-        cards.add(num + " of " + suit);
+        Card c = new Card();
+        c.setName(num + " of " + suit);
+        c.setValue(i);
+        cards.add(c);
       }
     }
 
