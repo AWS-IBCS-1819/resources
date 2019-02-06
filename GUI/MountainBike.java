@@ -16,4 +16,7 @@ public class MountainBike extends Bicycle {
     public void setHeight(int newValue) {
         seatHeight = newValue;
     }
+    public static void main(String[] args) {
+      MountainBike m = new MountainBike(4, 5, 6, 1);
+    }
 }
