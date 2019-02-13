@@ -4,6 +4,7 @@ import java.awt.event.*;
 public class AL extends Frame implements WindowListener,ActionListener {
         TextField text = new TextField(20);
         Button b;
+        Button b2;
         private int numClicks = 0;
 
         public AL(String title) {
@@ -13,8 +14,16 @@ public class AL extends Frame implements WindowListener,ActionListener {
                 addWindowListener(this);
                 b = new Button("Click me");
                 add(b);
+                b2 = new Button("Don't Click Me");
+                add(b2);
                 add(text);
                 b.addActionListener(this);
+                b2.addActionListener(new ActionListener() {
+                  public void actionPerformed(ActionEvent e) {
+                    numClicks--;
+                    text.setText("Button Clicked " + numClicks + " times");
+                  }
+                });
         }
 
         public static void main(String[] args) {
@@ -26,7 +35,6 @@ public class AL extends Frame implements WindowListener,ActionListener {
         public void actionPerformed(ActionEvent e) {
                 numClicks++;
                 text.setText("Button Clicked " + numClicks + " times");
-                System.out.println("hi");
         }
 
         public void windowClosing(WindowEvent e) {
