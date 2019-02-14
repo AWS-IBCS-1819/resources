@@ -11,13 +11,19 @@ public class FunWin extends Frame implements WindowListener,ActionListener {
         CheckboxGroup gg;
         private int numClicks = 0;
         private String choice = "";
+        Gradebook g;
 
         public FunWin(String title) {
+
 
                 super(title);
                 setLayout(new FlowLayout());
                 setBackground(Color.cyan);
                 addWindowListener(this);
+
+                //Create Gradebook
+                g = new Gradebook("grades.txt");
+
                 b = new Button("Thing 1");
                 add(b);
                 b2 = new Button("Invisible?");
@@ -51,7 +57,7 @@ public class FunWin extends Frame implements WindowListener,ActionListener {
         }
 
         public void actionPerformed(ActionEvent e) {
-            numClicks++;
+            /*numClicks++;
             if (za.getState()) {
               choice = "pizza";
             }
@@ -60,8 +66,8 @@ public class FunWin extends Frame implements WindowListener,ActionListener {
             }
             else {
               choice = "lasagna";
-            }
-            text.setText("You are ordering " + numClicks + " of " + choice);
+            }*/
+            text.setText(Double.toString(g.topGrade()));
         }
 
 
