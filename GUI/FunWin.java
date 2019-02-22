@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
 
 public class FunWin extends Frame implements WindowListener,ActionListener {
         TextField text = new TextField(40);
@@ -12,12 +13,14 @@ public class FunWin extends Frame implements WindowListener,ActionListener {
         private int numClicks = 0;
         private String choice = "";
         Gradebook g;
+        JComboBox<String> dropdown;
+        String myChoice;
 
         public FunWin(String title) {
 
 
                 super(title);
-                setLayout(new FlowLayout());
+                setLayout(null);
                 setBackground(Color.cyan);
                 addWindowListener(this);
 
@@ -29,19 +32,28 @@ public class FunWin extends Frame implements WindowListener,ActionListener {
                 b2 = new Button("Invisible?");
                 add(b2);
                 add(text);
-                gg = new CheckboxGroup();
-                za = new Checkbox("pizza", gg, false);
-                sta = new Checkbox("pasta", gg, false);
-                gna = new Checkbox("lasagna", gg, false);
-                add(za);
-                add(sta);
-                add(gna);
+                text.setBounds(50,300,150,30);
+                //gg = new CheckboxGroup();
+                //za = new Checkbox("pizza", gg, false);
+                //sta = new Checkbox("pasta", gg, false);
+                //gna = new Checkbox("lasagna", gg, false);
+                //add(za);
+                //add(sta);
+                //add(gna);
+
+                String[] options = {"Pizza", "Pasta", "Lasagna"};
+                dropdown = new JComboBox<String>(options);
+                dropdown.setBounds(200,200,130,200);
+                add(dropdown);
+                dropdown.addActionListener(this);
+
                 b.setBackground(Color.red);
                 Color c = new Color(2,7,80);
                 b2.setBackground(c);
                 b.setForeground(c);
                 b2.setForeground(Color.green);
                 b.addActionListener(this);
+                myChoice = "";
                 b2.addActionListener(new ActionListener() {
                   public void actionPerformed(ActionEvent e) {
                     numClicks--;
@@ -57,6 +69,11 @@ public class FunWin extends Frame implements WindowListener,ActionListener {
         }
 
         public void actionPerformed(ActionEvent e) {
+
+            if (e.getSource() == dropdown) {
+              //System.out.println(dropdown.getSelectedItem().getClass());
+              myChoice = dropdown.getSelectedItem().toString();
+            }
             /*numClicks++;
             if (za.getState()) {
               choice = "pizza";
@@ -67,7 +84,7 @@ public class FunWin extends Frame implements WindowListener,ActionListener {
             else {
               choice = "lasagna";
             }*/
-            text.setText(Double.toString(g.topGrade()));
+            text.setText("You are ordering " + myChoice);
         }
 
 

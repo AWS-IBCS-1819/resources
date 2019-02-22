@@ -64,7 +64,7 @@ public class Gradebook {
     for (int i = 0; i < grd.length(); i=i+5) {
       count++;
       String grdString =  grd.substring(i, i+4);
-      System.out.println(grdString);
+      //System.out.println(grdString);
       Double dub = Double.parseDouble(grdString);
       Double temp = dub;
       sum = sum + temp;
