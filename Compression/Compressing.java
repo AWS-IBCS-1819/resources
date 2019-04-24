@@ -28,16 +28,53 @@ public static void main(String[] args) {
       }
     }
 
-    System.out.println("your file:\n" + sb);
+    //System.out.println("your file:\n" + sb);
   }
   catch (FileNotFoundException e) {
     e.printStackTrace();
   }
 
-  //HashMap<String, Integer> comps = new HashMap<String, Integer>();
+  int x = 3;
+
+  HashMap<Integer, String> comps = new HashMap<Integer, String>();
+  ArrayList<Integer> keys = new ArrayList<Integer>();
+  String temp = "";
+  int count = 0;
+  String next = "";
+  for (int i = 0; i < sb.length() - x; i++) {
+    count = 0;
+    next = sb.substring(i, i+x);
+    //System.out.println("next: " + next);
+    for (int k = i; k < sb.length() - x; k++) {
+      temp = sb.substring(k, k+x);
+      //System.out.println("temp: " + temp);
+      if (temp.equals(next)) {
+        count++;
+      }
+    }
+    //System.out.println(count);
+    if (count > 2) {
+      comps.put(i, next);
+      keys.add(i);
+    }
+  }
+  //System.out.println("Keys");
+  //for (int i = 0; i < keys.size(); i++) {
+  //  System.out.println(keys.get(i));
+  //}
+
+  String example = sb.toString();
+
+  for (int i = 0; i < keys.size(); i++) {
+    //System.out.println("substring: " + sb.substring(i, i+2));
+    //System.out.println("replace with " + keys.get(i).toString());
+    example = example.replaceAll(sb.substring(i, i+x), keys.get(i).toString());
+  }
+  System.out.println("Original:\n" + sb.toString());
+  System.out.println("Compressed:\n" + example);
   try {
     BufferedWriter writer = new BufferedWriter(new FileWriter("testOutput.txt"));
-    writer.write(sb.toString());
+    writer.write(example);
     writer.close();
   }
   catch (IOException e) {
